@@ -9,6 +9,15 @@ This repository represents the structural foundation of EVΛƎ.
 
 ---
 
+## Name and Symbol
+
+EVΛƎ is pronounced **"Eeva"**.
+
+The final character **Ǝ** is called **"Echo"**.
+It represents **Observation** and structural trace recording within the framework.
+
+---
+
 ## 🧠 What is EVΛƎ?
 
 EVΛƎ is a structural decision architecture designed to:
