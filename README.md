@@ -1,83 +1,74 @@
-# EVΛƎ (Eeva) Framework – Design-by-Transparency Demo
+# EVΛƎ (Eeva) Framework – Conscious Loop Demo
 
-This repository demonstrates the **EVΛƎ (Eeva) Framework**,  
-a Design-by-Transparency architecture for AI decision systems.
+This repository demonstrates the foundational layer of the  
+**EVΛƎ (Eeva) Framework** — a Design-by-Transparency architecture for AI systems.
 
-⚠️ This is an architecture demo repository.  
-The proprietary decision engine used in production systems is not included.
+⚠️ This demo includes only the Conscious Loop layer.  
+The Action Loop and Three-Path Feedback structure are not implemented here.
+
+This repository represents the structural foundation of EVΛƎ.
 
 ---
 
 ## 🧠 What is EVΛƎ?
 
-EVΛƎ is a dual-loop decision architecture designed to:
+EVΛƎ is a structural decision architecture designed to:
 
-- Fix responsibility **before execution**
+- Fix responsibility before execution
 - Preserve traceability at design-time
-- Prevent uncontrolled learning drift
-- Separate impulse, possibility, decision, and trace
+- Separate impulse, possibility, decision, and observation
 
-It is structured as:
+The full framework consists of:
 
-### 1️⃣ Conscious Loop  
-Ec → Vc → Λc → Ǝc  
+1. Conscious Loop
+2. Action Loop
+3. Three feedback paths (Emergency / Learning A / Learning B)
 
-- Ec (Impulse)
-- Vc (Possibility Generation)
-- Λc (Selection)
-- Ǝc (Trace / Observation)
-
-### 2️⃣ Action Loop  
-Ea → Λa → Ǝa → Va  
-
-- Ea (Action Initiation)
-- Λa (Execution Decision)
-- Ǝa (Action Trace)
-- Va (Future Possibility Generator)
+This demo focuses exclusively on the Conscious Loop.
 
 ---
 
-## 🔀 The Three Feedback Paths
+## 🔁 Conscious Loop (Implemented in This Demo)
 
-After action results, the system branches into one of three structural paths:
+Ec → Vc → Λc → Ǝc
 
-- 🚨 Emergency Path  
-- 🔁 Learning Path A (Reinforcement)  
-- 🔄 Learning Path B (Revision)
+- Ec — Impulse Input
+- Vc — Possibility Generation
+- Λc — Selection
+- Ǝc — Trace (Observation Record)
 
-The key idea:
-
-> AI must not only produce results —  
-> it must define what happens *next* structurally.
+This loop demonstrates how decision structure and trace recording
+can be fixed before action execution occurs.
 
 ---
 
-## 🌍 Domains Included in This Demo
+## 🌍 Domains Included
 
-This demo includes three simulated high-impact domains:
+This demo simulates the Conscious Loop across four domains:
 
 - 🏥 Medical AI  
 - 🎓 Education AI  
 - 🚀 Space Systems AI  
+- 🚗 Autonomous Driving AI  
 
-All domains share the same EVΛƎ architecture.
+All domains share the same structural base.
 
 ---
 
-## 🔧 Architecture in This Repository
+## 🔧 What This Repository Includes
 
-This repository includes:
-
-- UI demonstration of the dual-loop model
+- UI demonstration of the Conscious Loop
 - Trace visualization
-- Simulated domain outputs
-- Mock engine implementation
+- Simulated outputs via mock engine
 
-It does NOT include:
+---
 
+## ❌ What Is Not Included
+
+- Action Loop implementation
+- Three feedback paths
 - Proprietary scoring logic
-- Production decision thresholds
-- Commercial implementations
+- Production thresholds
 
 ---
 
