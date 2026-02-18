@@ -12,7 +12,7 @@ export function LogEn({ log }: LogEnProps) {
 
   // ✅ “選択＝Λ” の強調色（border + tint）
   const lambdaSolid = EVAE_COLORS["Λ"];
-  const lambdaTint = "rgba(132,204,22,0.12)"; // #84CC16 の薄背景
+  const lambdaTint = "rgba(132,204,22,0.12)"; // #84CC16 tint
 
   return (
     <div className="space-y-4 mt-6">
