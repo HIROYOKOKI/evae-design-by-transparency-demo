@@ -49,7 +49,16 @@ export default function DemoHubPage() {
           <a
             key={d.href}
             href={d.href}
-            className="block rounded-2xl border border-slate-800 bg-slate-900/60 p-4 hover:bg-slate-900/80 transition"
+            className={
+  "block rounded-2xl border border-slate-800 bg-slate-900/60 p-4 transition hover:bg-slate-900/80 " +
+  (d.href === "/demo-med-en"
+    ? "bg-violet-500/5"
+    : d.href === "/demo-edu-en"
+    ? "bg-sky-500/5"
+    : d.href === "/demo-space-en"
+    ? "bg-cyan-500/5"
+    : "bg-amber-500/5")
+}
           >
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-base font-semibold text-slate-50">{d.title}</h2>
