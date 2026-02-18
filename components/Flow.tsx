@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { EVAE_COLORS, type EVAEKey } from "./evaeColors";
 
 const STEPS = [
   { key: "E", label: "E — Impulse " },
@@ -9,15 +10,6 @@ const STEPS = [
   { key: "Λ", label: "Λ — Choice " },
   { key: "Ǝ", label: "Ǝ — Observation " },
 ] as const;
-
-const EVAE = {
-  E: "#FF4500",
-  V: "#1E3A8A",
-  "Λ": "#84CC16",
-  "Ǝ": "#B833F5",
-} as const;
-
-type EvKey = keyof typeof EVAE;
 
 interface FlowProps {
   running: boolean;
@@ -48,7 +40,7 @@ export function Flow({ running }: FlowProps) {
     <div className="flex items-center justify-between gap-2 text-xs md:text-sm">
       {STEPS.map((step, index) => {
         const isActive = activeIndex === index;
-        const color = EVAE[step.key as EvKey];
+        const color = EVAE_COLORS[step.key as EVAEKey];
 
         return (
           <div key={step.key} className="flex items-center gap-2 flex-1">
@@ -59,22 +51,12 @@ export function Flow({ running }: FlowProps) {
                   ? "text-slate-950 shadow"
                   : "bg-slate-900 text-slate-200 border-slate-600",
               ].join(" ")}
-              style={
-                isActive
-                  ? {
-                      backgroundColor: color,
-                      borderColor: color,
-                    }
-                  : undefined
-              }
+              style={isActive ? { backgroundColor: color, borderColor: color } : undefined}
             >
               {step.key}
             </div>
 
-            <span
-              className="hidden sm:inline"
-              style={{ color: isActive ? color : "#E2E8F0" }} // slate-200
-            >
+            <span className="hidden sm:inline" style={{ color: isActive ? color : "#E2E8F0" }}>
               {step.label}
             </span>
 
@@ -85,7 +67,7 @@ export function Flow({ running }: FlowProps) {
                   background:
                     index < (activeIndex ?? -1)
                       ? `linear-gradient(to right, ${color}, rgba(255,255,255,0))`
-                      : "linear-gradient(to right, #475569, #1f2937)", // slate-600 -> slate-800
+                      : "linear-gradient(to right, #475569, #1f2937)",
                 }}
               />
             )}
