@@ -118,9 +118,13 @@ npm install
 npm run dev
 ```
 
-Then open:
+## Routes (Demo Pages)
 
-[http://localhost:3000/demo](http://localhost:3000/demo)
+- Hub: http://localhost:3000/demo
+- Medical (EN): http://localhost:3000/demo-med-en
+- Education (EN): http://localhost:3000/demo-edu-en
+- Space Systems (EN): http://localhost:3000/demo-space-en
+- Autonomous Driving (EN): http://localhost:3000/demo-auto-en
 
 ---
 
