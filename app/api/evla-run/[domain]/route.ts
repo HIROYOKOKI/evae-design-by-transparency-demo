@@ -48,9 +48,8 @@ export async function POST(
     // ✅ compatibility: keep baseDomain typed as EvlaRunRequest["domain"].
     // If your types don't include EDUCATION/SPACE/AUTO yet,
     // we still pass "MEDICAL" and let the engine decide output shape.
-    const baseDomain: EvlaRunRequest["domain"] =
-      // @ts-expect-error if domain union is currently "MEDICAL" only
-      mapped.domain ?? "MEDICAL";
+    const log = runEvlaEn({ prompt, domain: baseDomain });
+
 
     // EN only public demo
     const log = runEvlaEn({ prompt, domain: baseDomain });
