@@ -9,7 +9,7 @@ type Demo = {
   href: string;
   status: "Live" | "Coming soon";
   tint: string; // rgba
-  bar: string; // rgba
+  bar: string;  // rgba
 };
 
 export default function DemoHubPage() {
@@ -71,21 +71,14 @@ export default function DemoHubPage() {
             href={d.href}
             className="group relative overflow-hidden block rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-4 py-4 transition hover:border-slate-700 hover:bg-slate-900/80"
           >
-            {/* left bar */}
             <div className="absolute left-0 top-0 z-10 h-full w-[12px]" style={{ backgroundColor: d.bar }} />
-
-            {/* subtle tint overlay */}
             <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: d.tint }} />
 
             <div className="relative flex items-center justify-between gap-3">
               <h2 className="text-base font-semibold text-slate-50">{d.title}</h2>
-
               <span
                 className="text-[11px] px-2 py-1 rounded-full border text-slate-100"
-                style={{
-                  borderColor: d.bar,
-                  backgroundColor: "rgba(15,23,42,0.35)",
-                }}
+                style={{ borderColor: d.bar, backgroundColor: "rgba(15,23,42,0.35)" }}
               >
                 {d.status}
               </span>
