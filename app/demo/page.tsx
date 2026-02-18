@@ -1,41 +1,50 @@
 // app/demo/page.tsx
 "use client";
 
+type Demo = {
+  title: string;
+  desc: string;
+  href: string;
+  status: "Live" | "Coming soon";
+  tint: string; // rgba
+  bar: string;  // rgba
+};
+
 export default function DemoHubPage() {
-  const demos = [
+  const demos: Demo[] = [
     {
       title: "Medical (EN)",
       desc: "Conscious Loop demo for risk-aware medical decision support.",
       href: "/demo-med-en",
       status: "Live",
-      tint: "bg-violet-500/12",
-      bar: "bg-violet-500/70",
+      tint: "rgba(139,92,246,0.14)", // violet
+      bar: "rgba(139,92,246,0.75)",
     },
     {
       title: "Education (EN)",
       desc: "Conscious Loop demo for learning guidance and curriculum decisions.",
       href: "/demo-edu-en",
       status: "Live",
-      tint: "bg-sky-500/12",
-      bar: "bg-sky-500/70",
+      tint: "rgba(56,189,248,0.14)", // sky
+      bar: "rgba(56,189,248,0.75)",
     },
     {
       title: "Space Systems (EN)",
       desc: "Conscious Loop demo for mission planning and safety-critical trade-offs.",
       href: "/demo-space-en",
       status: "Live",
-      tint: "bg-cyan-500/12",
-      bar: "bg-cyan-500/70",
+      tint: "rgba(34,211,238,0.14)", // cyan
+      bar: "rgba(34,211,238,0.75)",
     },
     {
       title: "Autonomous Driving (EN)",
       desc: "Conscious Loop demo for safety-critical trade-offs and trace-before-action.",
       href: "/demo-auto-en",
       status: "Live",
-      tint: "bg-amber-500/12",
-      bar: "bg-amber-500/70",
+      tint: "rgba(251,191,36,0.14)", // amber
+      bar: "rgba(251,191,36,0.75)",
     },
-  ] as const;
+  ];
 
   return (
     <div className="space-y-6">
@@ -58,15 +67,10 @@ export default function DemoHubPage() {
           <a
             key={d.href}
             href={d.href}
-            className={
-              "relative overflow-hidden block rounded-2xl border border-slate-800 " +
-              "bg-slate-900/60 pl-6 pr-4 py-4 transition ...
- hover:bg-slate-900/80 " +
-              d.tint
-            }
+            className="relative overflow-hidden block rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-4 py-4 hover:bg-slate-900/80 transition"
+            style={{ backgroundColor: d.tint }}
           >
-            {/* left color bar */}
-            <div className={"absolute left-0 top-0 z-10 h-full w-[12px] " + d.bar} />
+            <div className="absolute left-0 top-0 z-10 h-full w-[12px]" style={{ backgroundColor: d.bar }} />
 
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-base font-semibold text-slate-50">{d.title}</h2>
