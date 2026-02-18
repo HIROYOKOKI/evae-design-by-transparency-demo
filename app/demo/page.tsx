@@ -88,6 +88,8 @@ export default function DemoHubPage() {
         <h1 className="text-2xl md:text-3xl font-semibold">
           EVΛƎ (Eeva) – Design-by-Transparency Demo Hub
         </h1>
+        <p className="text-xs text-rose-300">DEBUG HUB v4color</p>
+
         <p className="text-sm text-slate-300">
           This repository demonstrates the <span className="font-semibold">Conscious Loop</span>{" "}
           foundation of the EVΛƎ (Eeva) Framework. Choose a domain demo below.
