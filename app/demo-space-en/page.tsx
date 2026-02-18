@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { Flow } from "@/components/Flow";
-import { LogSpaceEn } from "@/components/LogSpaceEn"; // ★ ここを英語版に
+import { LogSpaceEn } from "@/components/LogSpaceEn";
 import type { EvlaLog } from "@/lib/evla/types";
 
 export default function DemoSpaceEnPage() {
@@ -28,9 +28,7 @@ export default function DemoSpaceEnPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(
-          (data as any).error || `request failed with ${res.status}`
-        );
+        throw new Error((data as any).error || `request failed with ${res.status}`);
       }
 
       const data = (await res.json()) as { log: EvlaLog };
@@ -62,22 +60,16 @@ export default function DemoSpaceEnPage() {
           EVΛƎ Space AI Demo: Transparent Lunar Landing Decisions
         </h1>
         <p className="text-sm text-slate-300 leading-relaxed">
-          This demo imagines a scenario where an AI system helps select a landing
-          site for a lunar mission. By entering{" "}
-          <span className="font-semibold">what you want the AI to decide</span>,
-          the EVΛƎ framework generates:
+          This demo imagines a scenario where an AI system helps select a landing site for a lunar mission. By entering{" "}
+          <span className="font-semibold">what you want the AI to decide</span>, the EVΛƎ framework generates:
           <span className="font-semibold">
             {" "}
-            candidate options (V), the final choice and its rationale (Λ), and a
-            transparency log (Ǝ)
+            candidate options (V), the final choice and its rationale (Λ), and a transparency log (Ǝ)
           </span>
-          , so we can see how a{" "}
-          <span className="font-semibold">safe and accountable space AI</span>{" "}
-          could be designed.
+          , so we can see how a <span className="font-semibold">safe and accountable space AI</span> could be designed.
         </p>
         <p className="text-xs text-slate-400">
-          * This is a fictional scenario to illustrate the EVΛƎ structure. It
-          does not use real mission data.
+          * This is a fictional scenario to illustrate the EVΛƎ structure. It does not use real mission data.
         </p>
       </section>
 
@@ -89,21 +81,22 @@ export default function DemoSpaceEnPage() {
           <label className="block text-xs text-slate-300">
             E — Mission objective (what you want the AI to decide)
           </label>
+
           <textarea
-            className="w-full min-h-[110px] rounded-xl border border-slate-700 bg-slate-950/80 px-3 py-2 text-sm text-slate-50 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="w-full min-h-[110px] rounded-xl border border-slate-700 bg-slate-950/80 px-3 py-2 text-sm text-slate-50 focus:outline-none focus:ring-1 focus:ring-blue-500"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
+
           <button
             onClick={runDemo}
             disabled={loading || !prompt.trim()}
-            className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-emerald-500 text-slate-950 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-emerald-400 transition"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-500 active:bg-blue-700 transition"
           >
             {loading ? "Running EVΛƎ loop…" : "Run EVΛƎ loop"}
           </button>
-          {error && (
-            <p className="text-xs text-red-400 mt-1">Error: {error}</p>
-          )}
+
+          {error && <p className="text-xs text-red-400 mt-1">Error: {error}</p>}
         </div>
       </section>
 
