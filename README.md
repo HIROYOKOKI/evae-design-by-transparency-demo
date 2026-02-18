@@ -18,6 +18,14 @@ This repository represents the architectural foundation of the EVΛƎ framework.
 The final character **Ǝ** is called **"Echo."**
 It represents **Observation** and structural trace recording within the framework.
 
+In EVΛƎ:
+
+E — Impulse  
+V — Possibility  
+Λ — Choice  
+Ǝ — Echo (Observation / Structural Trace)
+
+
 ---
 
 ## What is EVΛƎ?
