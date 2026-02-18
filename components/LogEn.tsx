@@ -18,26 +18,30 @@ export function LogEn({ log }: LogEnProps) {
     <div className="space-y-4 mt-6">
       {/* E — Impulse */}
       <section className="border border-slate-800 rounded-xl p-4 bg-slate-900/60">
+<<<<<<< HEAD
         <h3
           className="text-sm font-semibold mb-2"
           style={{ color: EVAE_COLORS.E }}
         >
+=======
+        <h3 className="text-sm font-semibold mb-2" style={{ color: EVAE_COLORS.E }}>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
           E — Impulse (Doctor’s diagnostic intent)
         </h3>
-        <p className="text-sm text-slate-100 whitespace-pre-wrap">
-          {impulse.text}
-        </p>
-        <p className="text-[11px] text-slate-500 mt-2">
-          timestamp: {impulse.timestamp}
-        </p>
+        <p className="text-sm text-slate-100 whitespace-pre-wrap">{impulse.text}</p>
+        <p className="text-[11px] text-slate-500 mt-2">timestamp: {impulse.timestamp}</p>
       </section>
 
       {/* V — Possibilities */}
       <section className="border border-slate-800 rounded-xl p-4 bg-slate-900/40">
+<<<<<<< HEAD
         <h3
           className="text-sm font-semibold mb-2"
           style={{ color: EVAE_COLORS.V }}
         >
+=======
+        <h3 className="text-sm font-semibold mb-2" style={{ color: EVAE_COLORS.V }}>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
           V — Generated diagnostic scenarios
         </h3>
 
@@ -50,6 +54,7 @@ export function LogEn({ log }: LogEnProps) {
                 key={p.id}
                 className={[
                   "rounded-lg border p-3 text-xs space-y-1 transition-colors",
+<<<<<<< HEAD
                   isSelected
                     ? "bg-slate-900/60"
                     : "border-slate-700 bg-slate-900/60",
@@ -59,6 +64,11 @@ export function LogEn({ log }: LogEnProps) {
                     ? { borderColor: lambdaSolid, backgroundColor: lambdaTint }
                     : undefined
                 }
+=======
+                  isSelected ? "bg-slate-900/60" : "border-slate-700 bg-slate-900/60",
+                ].join(" ")}
+                style={isSelected ? { borderColor: lambdaSolid, backgroundColor: lambdaTint } : undefined}
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
               >
                 <div className="flex items-center justify-between">
                   <span className="font-semibold">
@@ -68,9 +78,13 @@ export function LogEn({ log }: LogEnProps) {
                     score: {p.score.toFixed(2)} / risk: {p.risk.toFixed(2)}
                   </span>
                 </div>
+<<<<<<< HEAD
                 <p className="text-slate-100 whitespace-pre-wrap">
                   {p.hypothesis}
                 </p>
+=======
+                <p className="text-slate-100 whitespace-pre-wrap">{p.hypothesis}</p>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
               </div>
             );
           })}
@@ -79,10 +93,14 @@ export function LogEn({ log }: LogEnProps) {
 
       {/* Λ — Choice */}
       <section className="border border-slate-800 rounded-xl p-4 bg-slate-900/40">
+<<<<<<< HEAD
         <h3
           className="text-sm font-semibold mb-2"
           style={{ color: EVAE_COLORS["Λ"] }}
         >
+=======
+        <h3 className="text-sm font-semibold mb-2" style={{ color: EVAE_COLORS["Λ"] }}>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
           Λ — Selected scenario & rationale
         </h3>
 
@@ -95,9 +113,13 @@ export function LogEn({ log }: LogEnProps) {
           </p>
         )}
 
+<<<<<<< HEAD
         <p className="text-xs text-slate-200 whitespace-pre-wrap mb-2">
           {choice.reason}
         </p>
+=======
+        <p className="text-xs text-slate-200 whitespace-pre-wrap mb-2">{choice.reason}</p>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
 
         <ul className="text-[11px] text-slate-400 list-disc list-inside space-y-1">
           {choice.criteria.map((c, i) => (
@@ -108,6 +130,7 @@ export function LogEn({ log }: LogEnProps) {
 
       {/* Ǝ — Observation */}
       <section className="border border-slate-800 rounded-xl p-4 bg-slate-900/60">
+<<<<<<< HEAD
         <h3
           className="text-sm font-semibold mb-2"
           style={{ color: EVAE_COLORS["Ǝ"] }}
@@ -122,11 +145,17 @@ export function LogEn({ log }: LogEnProps) {
         <p className="text-[11px] text-slate-300 whitespace-pre-wrap mb-2">
           {observation.explanation}
         </p>
+=======
+        <h3 className="text-sm font-semibold mb-2" style={{ color: EVAE_COLORS["Ǝ"] }}>
+          Ǝ — Observation (final diagnostic plan)
+        </h3>
+
+        <p className="text-sm text-slate-50 whitespace-pre-wrap mb-2">{observation.outcome}</p>
+        <p className="text-[11px] text-slate-300 whitespace-pre-wrap mb-2">{observation.explanation}</p>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
 
         {observation.notes && (
-          <p className="text-[11px] text-slate-500 whitespace-pre-wrap">
-            {observation.notes}
-          </p>
+          <p className="text-[11px] text-slate-500 whitespace-pre-wrap">{observation.notes}</p>
         )}
       </section>
     </div>

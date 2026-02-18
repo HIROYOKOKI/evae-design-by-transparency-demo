@@ -17,7 +17,11 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for risk-aware medical decision support.",
       href: "/demo-med-en",
       status: "Live",
+<<<<<<< HEAD
       tint: "rgba(139,92,246,0.14)", // violet
+=======
+      tint: "rgba(139,92,246,0.14)",
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
       bar: "rgba(139,92,246,0.75)",
     },
     {
@@ -25,7 +29,11 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for learning guidance and curriculum decisions.",
       href: "/demo-edu-en",
       status: "Live",
+<<<<<<< HEAD
       tint: "rgba(56,189,248,0.14)", // sky
+=======
+      tint: "rgba(56,189,248,0.14)",
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
       bar: "rgba(56,189,248,0.75)",
     },
     {
@@ -33,7 +41,11 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for mission planning and safety-critical trade-offs.",
       href: "/demo-space-en",
       status: "Live",
+<<<<<<< HEAD
       tint: "rgba(34,211,238,0.14)", // cyan
+=======
+      tint: "rgba(34,211,238,0.14)",
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
       bar: "rgba(34,211,238,0.75)",
     },
     {
@@ -41,7 +53,11 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for safety-critical trade-offs and trace-before-action.",
       href: "/demo-auto-en",
       status: "Live",
+<<<<<<< HEAD
       tint: "rgba(251,191,36,0.14)", // amber
+=======
+      tint: "rgba(251,191,36,0.14)",
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
       bar: "rgba(251,191,36,0.75)",
     },
   ];

@@ -35,7 +35,11 @@ export default function DemoAutoEnPage() {
   // Ǝc: trace record (stored before action)
   const [trace, setTrace] = useState<any | null>(null);
 
+<<<<<<< HEAD
   // ✅ チップ点灯用（選択 or commit のたびに一回流す）
+=======
+  // ✅ チップ点灯（選択 or Commit のたびに一回だけ流す）
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
   const [animateFlow, setAnimateFlow] = useState(false);
   useEffect(() => {
     if (!selectedId && !trace) return;
@@ -49,7 +53,10 @@ export default function DemoAutoEnPage() {
     const visFactor = visibility === "good" ? 1.0 : 0.75;
     const hazardBase = scenario === "pedestrian" ? 0.85 : scenario === "cutin" ? 0.65 : 0.75;
 
+<<<<<<< HEAD
     // simple risk proxy
+=======
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
     const speedFactor = Math.min(1, Math.max(0.2, speedKmh / 80));
     const danger = Math.min(
       1,
@@ -108,10 +115,14 @@ export default function DemoAutoEnPage() {
     ];
   }, [context]);
 
+<<<<<<< HEAD
   const selected = useMemo(
     () => candidates.find((c) => c.id === selectedId) || null,
     [candidates, selectedId]
   );
+=======
+  const selected = useMemo(() => candidates.find((c) => c.id === selectedId) || null, [candidates, selectedId]);
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
 
   function commitTrace() {
     if (!selected) return;
@@ -160,11 +171,17 @@ export default function DemoAutoEnPage() {
           omitted in this public repo.
         </p>
 
+<<<<<<< HEAD
         {/* ✅ チップ（1色・順点灯） */}
         <div className="mt-2 rounded-2xl border border-slate-800 bg-slate-900/40 p-3">
           <div className="text-[11px] text-slate-400 mb-2">
             Conscious Loop (public): Ec → Vc → Λc → Ǝc
           </div>
+=======
+        {/* ✅ 追加：構造チップ（1色・順点灯） */}
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-3">
+          <div className="text-[11px] text-slate-400 mb-2">Conscious Loop (public): Ec → Vc → Λc → Ǝc</div>
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
           <FlowConscious running={animateFlow} color="#F59E0B" />
         </div>
       </header>
@@ -295,6 +312,10 @@ export default function DemoAutoEnPage() {
                   {selected.risk}
                 </span>
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
               {selected.notes?.length ? (
                 <ul className="mt-3 list-disc pl-5 text-xs text-slate-400 space-y-1">
                   {selected.notes.map((n) => (
@@ -327,8 +348,12 @@ export default function DemoAutoEnPage() {
 
       <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
         <div className="text-xs text-slate-400">
+<<<<<<< HEAD
           Note: This demo intentionally stops at Ǝ (Echo). Execution and three-path feedback remain private /
           domain-specific and are not included in this public repository.
+=======
+          Note: This demo intentionally stops at Ǝ (Echo). Execution and three-path feedback are not included here.
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
         </div>
       </section>
     </div>

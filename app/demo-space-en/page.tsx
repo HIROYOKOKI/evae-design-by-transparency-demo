@@ -50,12 +50,19 @@ export default function DemoSpaceEnPage() {
     }
   }
 
+<<<<<<< HEAD
   // ✅ EvlaLog を4フェーズの文字列に正規化
+=======
+  // ✅ EvlaLog を4フェーズ文字列へ正規化（E/V/Λ/Ǝ）
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
   const phaseValue = useMemo(() => {
     if (!log) return null;
     const anyLog = log as any;
 
+<<<<<<< HEAD
     // まず direct keys を優先（あなたのAPIはここに入れてる）
+=======
+>>>>>>> ae878a6 (Unify demo UI: add Conscious Loop chips and fix EVAE colors)
     const E = anyLog.E ?? anyLog.impulse?.text ?? "";
     const V = anyLog.V ?? "";
     const L = anyLog["Λ"] ?? "";

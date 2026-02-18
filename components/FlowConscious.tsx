@@ -12,7 +12,7 @@ const STEPS = [
 
 export function FlowConscious({
   running,
-  color = "#F59E0B", // amber-500相当（ボタン色に合わせる）
+  color = "#F59E0B",
 }: {
   running: boolean;
   color?: string;
@@ -51,11 +51,7 @@ export function FlowConscious({
                   ? "text-slate-950 shadow"
                   : "bg-slate-900 text-slate-200 border-slate-600",
               ].join(" ")}
-              style={
-                isActive
-                  ? { backgroundColor: color, borderColor: color }
-                  : undefined
-              }
+              style={isActive ? { backgroundColor: color, borderColor: color } : undefined}
             >
               {step.label}
             </div>
