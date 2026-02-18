@@ -9,7 +9,7 @@ type Demo = {
   href: string;
   status: "Live" | "Coming soon";
   tint: string; // rgba
-  bar: string;  // rgba
+  bar: string; // rgba
 };
 
 export default function DemoHubPage() {
@@ -74,18 +74,17 @@ export default function DemoHubPage() {
             {/* left bar */}
             <div className="absolute left-0 top-0 z-10 h-full w-[12px]" style={{ backgroundColor: d.bar }} />
 
-            {/* subtle tint overlay (so base slate still shows) */}
-            <div className="absolute inset-0 opacity-100 pointer-events-none" style={{ backgroundColor: d.tint }} />
+            {/* subtle tint overlay */}
+            <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: d.tint }} />
 
             <div className="relative flex items-center justify-between gap-3">
               <h2 className="text-base font-semibold text-slate-50">{d.title}</h2>
 
-              {/* status badge tinted by domain color */}
               <span
                 className="text-[11px] px-2 py-1 rounded-full border text-slate-100"
                 style={{
                   borderColor: d.bar,
-                  backgroundColor: "rgba(15,23,42,0.35)", // slate overlay
+                  backgroundColor: "rgba(15,23,42,0.35)",
                 }}
               >
                 {d.status}
