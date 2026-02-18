@@ -59,8 +59,7 @@ export default function DemoAutoEnPage() {
 
     const controlledBrakeRisk: RiskLevel =
       danger > 0.75 ? "MEDIUM" : "LOW";
-
-    const minimalInterventionRisk: RiskLevel =
+const minimalInterventionRisk: RiskLevel =
       danger > 0.7 ? "HIGH" : danger > 0.5 ? "MEDIUM" : "LOW";
 
     return [
