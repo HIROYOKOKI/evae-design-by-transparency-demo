@@ -8,7 +8,7 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for risk-aware medical decision support.",
       href: "/demo-med-en",
       status: "Live",
-      tint: "bg-violet-500/5",
+      tint: "bg-violet-500/12",
       bar: "bg-violet-500/70",
     },
     {
@@ -16,7 +16,7 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for learning guidance and curriculum decisions.",
       href: "/demo-edu-en",
       status: "Live",
-      tint: "bg-sky-500/5",
+      tint: "bg-sky-500/12",
       bar: "bg-sky-500/70",
     },
     {
@@ -24,7 +24,7 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for mission planning and safety-critical trade-offs.",
       href: "/demo-space-en",
       status: "Live",
-      tint: "bg-cyan-500/5",
+      tint: "bg-cyan-500/12",
       bar: "bg-cyan-500/70",
     },
     {
@@ -32,7 +32,7 @@ export default function DemoHubPage() {
       desc: "Conscious Loop demo for safety-critical trade-offs and trace-before-action.",
       href: "/demo-auto-en",
       status: "Live",
-      tint: "bg-amber-500/5",
+      tint: "bg-amber-500/12",
       bar: "bg-amber-500/70",
     },
   ] as const;
@@ -60,12 +60,13 @@ export default function DemoHubPage() {
             href={d.href}
             className={
               "relative overflow-hidden block rounded-2xl border border-slate-800 " +
-              "bg-slate-900/60 p-4 transition hover:bg-slate-900/80 " +
+              "bg-slate-900/60 pl-6 pr-4 py-4 transition ...
+ hover:bg-slate-900/80 " +
               d.tint
             }
           >
             {/* left color bar */}
-            <div className={"absolute left-0 top-0 z-10 h-full w-[10px] " + d.bar} />
+            <div className={"absolute left-0 top-0 z-10 h-full w-[12px] " + d.bar} />
 
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-base font-semibold text-slate-50">{d.title}</h2>
