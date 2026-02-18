@@ -1,7 +1,8 @@
 // app/demo-auto-en/page.tsx
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { FlowConscious } from "@/components/FlowConscious";
 
 type RiskLevel = "LOW" | "MEDIUM" | "HIGH";
 
@@ -33,6 +34,15 @@ export default function DemoAutoEnPage() {
 
   // Ǝc: trace record (stored before action)
   const [trace, setTrace] = useState<any | null>(null);
+
+  // ✅ チップ点灯用（選択 or commit のたびに一回流す）
+  const [animateFlow, setAnimateFlow] = useState(false);
+  useEffect(() => {
+    if (!selectedId && !trace) return;
+    setAnimateFlow(true);
+    const t = setTimeout(() => setAnimateFlow(false), 1800);
+    return () => clearTimeout(t);
+  }, [selectedId, trace]);
 
   const context = useMemo(() => {
     const friction = road === "dry" ? 0.9 : road === "wet" ? 0.6 : 0.25;
@@ -98,7 +108,10 @@ export default function DemoAutoEnPage() {
     ];
   }, [context]);
 
-  const selected = useMemo(() => candidates.find((c) => c.id === selectedId) || null, [candidates, selectedId]);
+  const selected = useMemo(
+    () => candidates.find((c) => c.id === selectedId) || null,
+    [candidates, selectedId]
+  );
 
   function commitTrace() {
     if (!selected) return;
@@ -124,12 +137,11 @@ export default function DemoAutoEnPage() {
     setTrace(record);
   }
 
-  const dangerLabel =
-    context.danger > 0.75 ? "HIGH" : context.danger > 0.5 ? "MEDIUM" : "LOW";
+  const dangerLabel = context.danger > 0.75 ? "HIGH" : context.danger > 0.5 ? "MEDIUM" : "LOW";
 
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
+      <header className="space-y-3">
         <div className="flex items-center justify-between gap-3">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Autonomous Driving (EN) — Conscious Loop Demo
@@ -147,6 +159,14 @@ export default function DemoAutoEnPage() {
           <span className="font-semibold">Ec → Vc → Λc → Ǝc (Echo)</span>. Execution and three-path feedback are
           omitted in this public repo.
         </p>
+
+        {/* ✅ チップ（1色・順点灯） */}
+        <div className="mt-2 rounded-2xl border border-slate-800 bg-slate-900/40 p-3">
+          <div className="text-[11px] text-slate-400 mb-2">
+            Conscious Loop (public): Ec → Vc → Λc → Ǝc
+          </div>
+          <FlowConscious running={animateFlow} color="#F59E0B" />
+        </div>
       </header>
 
       {/* Ec */}
@@ -214,7 +234,10 @@ export default function DemoAutoEnPage() {
           <span>
             Risk proxy: <span className="text-slate-200">{context.danger.toFixed(3)}</span>
           </span>
-          <span> / friction: <span className="text-slate-200">{context.friction.toFixed(2)}</span></span>
+          <span>
+            {" "}
+            / friction: <span className="text-slate-200">{context.friction.toFixed(2)}</span>
+          </span>
           <span className={"px-2 py-1 rounded-full border " + riskBadgeClass(dangerLabel as any)}>
             Danger: {dangerLabel}
           </span>
