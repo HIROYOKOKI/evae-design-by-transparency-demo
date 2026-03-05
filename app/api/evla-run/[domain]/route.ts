@@ -2,22 +2,17 @@
 import { NextResponse } from "next/server";
 import type { EvlaRunRequest, EvlaRunResponse } from "@/lib/evla/types";
 
-import { runEvla } from "@/lib/evla/engine";
 import { runEvlaEn } from "@/lib/evla/engine-en";
 
 export const runtime = "edge";
 
-type DomainSlug = "med" | "edu" | "space" | "auto";
 type DomainKey = "MEDICAL" | "EDUCATION" | "SPACE" | "AUTO";
 type LangKey = "EN" | "JA";
 
 /**
  * Map /api/run/[domain] -> engine domain keys.
- * Note: current engines/types are MEDICAL-centric; we keep compatibility.
- * We'll pass a base domain and let engine layer adjust if needed.
  */
 function mapDomain(slug: string): { domain: DomainKey; lang: LangKey } {
-  // Accept both short and legacy long forms
   const s = slug.toLowerCase();
 
   if (s === "med" || s === "medical") return { domain: "MEDICAL", lang: "EN" };
@@ -25,7 +20,6 @@ function mapDomain(slug: string): { domain: DomainKey; lang: LangKey } {
   if (s === "space") return { domain: "SPACE", lang: "EN" };
   if (s === "auto" || s === "autonomous" || s === "driving") return { domain: "AUTO", lang: "EN" };
 
-  // default
   return { domain: "MEDICAL", lang: "EN" };
 }
 
@@ -45,13 +39,10 @@ export async function POST(
 
     const mapped = mapDomain(domainParam);
 
-    // ✅ compatibility: keep baseDomain typed as EvlaRunRequest["domain"].
-    // If your types don't include EDUCATION/SPACE/AUTO yet,
-    // we still pass "MEDICAL" and let the engine decide output shape.
-    const log = runEvlaEn({ prompt, domain: baseDomain });
+    // 型が追いついてない場合に備えて、いったんMEDICALへフォールバックしてもOK
+    // もし EvlaRunRequest["domain"] がすでに "EDUCATION" 等を含むならこのままでOK。
+    const baseDomain = (mapped.domain as EvlaRunRequest["domain"]) ?? "MEDICAL";
 
-
-    // EN only public demo
     const log = runEvlaEn({ prompt, domain: baseDomain });
 
     const res: EvlaRunResponse = { log };
